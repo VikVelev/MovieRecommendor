@@ -1,5 +1,9 @@
 # AnimeRecommendor
 Recommend anime, based on your taste.
+Did this as an introduction to Machine Learning 
+```python
+print("Hello AI!")
+```
 Dependencies (Python libraries) :
 ```
 pandas, numpy, matplotlib, sklearn, seaborn
