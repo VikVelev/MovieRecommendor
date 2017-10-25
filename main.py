@@ -61,7 +61,7 @@ def getIndex(name):
 
             print("------------------------------")            
             print("Which one should I search for? (number only)")
-            choice = int(input()) + 1
+            choice = int(input()) - 1
             print("------------------------------")
             return getIndex(getIdPartialName(name)[choice])
         else:
