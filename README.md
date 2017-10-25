@@ -12,9 +12,6 @@ Usage:
 ```bash
 $~ git clone https://github.com/VikVelev/AnimeRecommendor
 $~ cd AnimeRecommendor
-```
-Change the directory to yours for the dataset in the main.py
-```bash
 python main.py
 ```
 Wait for it to load.
