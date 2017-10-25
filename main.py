@@ -41,7 +41,7 @@ animeFeatures = MaxAbsScaler().fit_transform(animeFeatures)
 
 #using KNN to get similar anime.
 #number of neighbors represents how many similar animes you will get
-nbrs = NearestNeighbors(n_neighbors=11, algorithm='ball_tree').fit(animeFeatures)
+nbrs = NearestNeighbors(n_neighbors=6, algorithm='ball_tree').fit(animeFeatures)
 #get the graph distances and indices
 distances, indices = nbrs.kneighbors(animeFeatures)
 
@@ -91,7 +91,11 @@ def printAnime(query=None,id=None):
     if query:
         found_id = getIndex(query)
         for id in indices[found_id][1:]:
+            print("______________________________")            
             print(animeData.ix[id]["name"])
+            print(animeData.ix[id]["genre"])
+            print(("Rating: %s") % animeData.ix[id]["rating"])
+            print()
 #Main loop
 while True:
     print("------------------------------")       
