@@ -3,13 +3,14 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 from sklearn.preprocessing import MaxAbsScaler
 from sklearn.neighbors import NearestNeighbors
 
 print("Loading data...")
 
-animeData = pd.read_csv("/home/viktorv/MachineLearning/AnimeRecommendor/anime.csv")
+animeData = pd.read_csv(os.path.dirname(os.path.realpath(__file__)) + "/anime.csv")
 
 #Remove "Unkown" values and replace them with an estimate for less computer confusion
 animeData.loc[(animeData["genre"] == "Hentai") & (animeData["episodes"] == "Unknown"),"episodes"] = "1"
