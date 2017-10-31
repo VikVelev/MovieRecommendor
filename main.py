@@ -9,10 +9,13 @@ import seaborn as sns
 from sklearn.preprocessing import MaxAbsScaler
 from sklearn.neighbors import NearestNeighbors
 
-if os.path.exists("./data.sav") and os.path.exists("./distances.sav") and os.path.exists("./indices.sav"):  
-    animeData = pickle.load(open('data.sav','rb'))
-    distances = pickle.load(open('distances.sav','rb'))
-    indices = pickle.load(open('indices.sav','rb'))
+def here(file):
+    return os.path.dirname(os.path.realpath(__file__)) + file
+
+if os.path.exists(here("/data.sav")) and os.path.exists(here("/distances.sav")) and os.path.exists(here("/indices.sav")):
+    animeData = pickle.load(open(here('/data.sav'),'rb'))
+    distances = pickle.load(open(here('/distances.sav'),'rb'))
+    indices = pickle.load(open(here('/distances.sav'),'rb'))
 else:
     print("Loading data...")
 
@@ -49,9 +52,9 @@ else:
     nbrs = NearestNeighbors(n_neighbors=6, algorithm='ball_tree').fit(animeFeatures)
     distances, indices = nbrs.kneighbors(animeFeatures)
 
-    pickle.dump(animeData,open('data.sav','wb'))
-    pickle.dump(distances,open('distances.sav','wb'))
-    pickle.dump(indices,open('indices.sav','wb'))
+    pickle.dump(animeData,open(here("/data.sav"),'wb'))
+    pickle.dump(distances,open(here("/distances.sav"),'wb'))
+    pickle.dump(indices,open(here("/indices.sav"),'wb'))
 
 print("Loaded.")
 
