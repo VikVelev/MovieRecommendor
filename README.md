@@ -12,7 +12,7 @@ Usage:
 ```bash
 $~ git clone https://github.com/VikVelev/AnimeRecommendor
 $~ cd AnimeRecommendor
-python main.py
+$~ python main.py
 ```
 Wait for it to load.
 After loading type an anime you liked.
