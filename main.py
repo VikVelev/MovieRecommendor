@@ -2,7 +2,7 @@ import os
 import re
 import pickle
 import pandas as pd
-import numpy as np
+#import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -15,9 +15,10 @@ def here(file):
 if os.path.exists(here("/data.sav")) and os.path.exists(here("/distances.sav")) and os.path.exists(here("/indices.sav")):
     animeData = pickle.load(open(here('/data.sav'),'rb'))
     distances = pickle.load(open(here('/distances.sav'),'rb'))
-    indices = pickle.load(open(here('/distances.sav'),'rb'))
+    indices = pickle.load(open(here('/indices.sav'),'rb'))
+
 else:
-    print("Loading data...")
+    print("Loading data...")    
 
     animeData = pd.read_csv(os.path.dirname(os.path.realpath(__file__)) + "/anime.csv")
 
@@ -52,9 +53,14 @@ else:
     nbrs = NearestNeighbors(n_neighbors=6, algorithm='ball_tree').fit(animeFeatures)
     distances, indices = nbrs.kneighbors(animeFeatures)
 
-    pickle.dump(animeData,open(here("/data.sav"),'wb'))
-    pickle.dump(distances,open(here("/distances.sav"),'wb'))
-    pickle.dump(indices,open(here("/indices.sav"),'wb'))
+    with open(here('/data.sav'), 'wb') as file:
+        pickle.dump(animeData, file, pickle.HIGHEST_PROTOCOL)
+    
+    with open(here('/distances.sav'), 'wb') as file:
+        pickle.dump(distances, file, pickle.HIGHEST_PROTOCOL)
+    
+    with open(here('/indices.sav'), 'wb') as file:
+        pickle.dump(indices, file, pickle.HIGHEST_PROTOCOL)
 
 print("Loaded.")
 
