@@ -1,5 +1,5 @@
 # AnimeRecommendor
-Recommend anime, based on your taste.
+Recommend anime, movies, tv shows based on your taste.
 Did this as an introduction to Machine Learning 
 ```python
 print("Hello AI!")
@@ -15,4 +15,4 @@ $~ cd AnimeRecommendor
 $~ python main.py
 ```
 Wait for it to load.
-After loading type an anime you liked.
+After loading type a show which you liked.
