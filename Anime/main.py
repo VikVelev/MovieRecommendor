@@ -103,14 +103,14 @@ def printAnime(query=None,id=None):
     
     if id:
         for id in indices[id][1:]:
-            print(animeData.ix[id]["name"])
+            print(animeData.iloc[id]["name"])
     if query:
         found_id = getIndex(query)
         for id in indices[found_id][1:]:
             print("______________________________")            
-            print(animeData.ix[id]["name"])
-            print(animeData.ix[id]["genre"])
-            print(("Rating: %s") % animeData.ix[id]["rating"])
+            print(animeData.iloc[id]["name"])
+            print(animeData.iloc[id]["genre"])
+            print(("Rating: %s") % animeData.iloc[id]["rating"])
             print()
 
 while True:
